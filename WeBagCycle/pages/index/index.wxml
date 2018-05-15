@@ -1,0 +1,24 @@
+
+<import src="../common/foot.wxml" />
+<import src="../common/head.wxml" />
+<view class="container">
+  <template is="head" />
+  <view class="divLine"></view>
+   <view class="index-bd">
+    <view class="kind-list">
+      <view class="kind-list-item">
+          <view class="kind-list-item-bd kind-list-item-bd-show">
+            <view class="navigator-box navigator-box-show">
+              <block wx:for-items="{{items}}" wx:for-item="item" wx:key="id">
+                <navigator url="/pages/{{item.id}}/{{item.id}}" class="navigator">
+                  <view class="navigator-text">{{item.name}}</view>
+                  <view class="navigator-arrow"></view>
+                </navigator>
+              </block>
+            </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <template is="foot" />
+</view>

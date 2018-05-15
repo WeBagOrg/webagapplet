@@ -1,0 +1,133 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #98F5FF;
+}
+.userinfo-part{
+  display: flex;
+  flex-direction: column;
+  padding-top: 40rpx;
+  padding-left: 5rpx;
+  width: 80%;
+}
+.userinfo-part1{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10rpx;
+
+}
+.userinfo-avatar {
+  width: 20%;
+  height: 148rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+  
+}
+
+.userinfo-nickname {
+  color: #000;
+  margin-left: 10rpx;
+  padding-bottom: 5rpx;
+}
+/*分割线样式*/
+.divLine{
+ background: #000;
+ width: 100%;
+ height: 1rpx;
+}
+/*编辑图标*/
+.userInfo-image{
+  width:50rpx;
+  height: 50rpx;
+  padding-left: 12rpx;
+  
+}
+/*用户余额*/
+.userMoney {
+  padding-left: 40rpx;
+}
+/*金额*/
+.moneyNum {
+  padding-left: 10rpx;
+}
+
+.index-bd {
+  padding: 30rpx 30rpx 40rpx;
+}
+
+.kind-list-item {
+  margin: 20rpx 0;
+  background-color: #FFFFFF;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+.kind-list-item:first-child {
+  margin-top: 0;
+}
+
+.kind-list-item-bd {
+  height: 0;
+  overflow: hidden;
+}
+.kind-list-item-bd-show {
+  height: auto;
+}
+
+.navigator-box {
+  opacity: 0;
+  position: relative;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 34rpx;
+
+  transform: translateY(-50%);
+  transition: .3s;
+}
+.navigator-box-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.navigator {
+  padding: 20rpx 30rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.navigator:before {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  right: 30rpx;
+  height: 1px;
+  border-top: 1rpx solid #D8D8D8;
+  color: #D8D8D8;
+}
+.navigator:first-child:before {
+  display: none;
+}
+.navigator-text {
+  flex: 1;
+}
+.navigator-arrow {
+  padding-right: 26rpx;
+  position: relative;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -8rpx;
+  right: 28rpx;
+}
