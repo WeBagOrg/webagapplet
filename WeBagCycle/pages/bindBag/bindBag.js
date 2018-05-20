@@ -8,9 +8,18 @@ Page({
   
   },
   openCode:function(e){
+    var code ;
+    var path;
+    wx.login({
+      success: function (res) {
+          code = res.code;
+          
+      }
+    })
     wx.scanCode({
       success: (res) => {
-        console.log(res)
+        path = res.result;
+        console.log(path+":"+code);
       }
     })
   },
