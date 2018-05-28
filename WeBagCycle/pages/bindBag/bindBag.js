@@ -20,6 +20,21 @@ Page({
       success: (res) => {
         path = res.result;
         console.log(path+":"+code);
+        //发起网络请求
+        wx.request({
+          url: path,
+          data: {
+            code: code
+          },
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'POST',
+          //服务端的回掉
+          success: function (result) {
+            
+          }
+        })
       }
     })
   },
