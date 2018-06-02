@@ -1,0 +1,20 @@
+<import src="../common/head.wxml" />
+<template is="head"/>
+<view class='backRecord' bindtouchmove="move">
+  <view class='header'>
+    <view class='header-item'>时间</view>
+    <view class='header-item'>废品类型</view>
+    <view class='header-item'>总价
+    <text class='header-item-unit'>(元)</text>
+    </view>
+  </view>
+    <view >
+      <view class='list' wx:for="{{items}}" wx:for-item='item' wx:key='id'>
+        <view class='list-item'>
+          <view class='info'>{{item.time}}</view>
+          <view class='info'>{{item.mold}}</view>
+          <view class='info'>{{item.weight}}</view>
+        </view>
+      </view>
+    </view>
+    </view>

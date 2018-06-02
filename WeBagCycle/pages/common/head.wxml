@@ -1,21 +1,29 @@
 <template name="head">
-<view class="userinfo">
-    <view  class="userinfo-avatar">
-      <open-data  type="userAvatarUrl"></open-data>
+  <view class='userinfo'>
+    <view class='content'>
+      <view>
+        <view class='avatar_border'></view>
+        <open-data class='avatar' type="userAvatarUrl"></open-data>
+      </view>
+      <view class='userinfo_wrapper'>
+        <view class='asset'>
+          <text>资产</text>
+          <text class='color'>0.00</text>
+        </view>
+        <view class='address'>
+          <text>地址</text>
+          <view>
+            <open-data type="userProvince" class='color' lang="zh_CN"></open-data>
+            <open-data type="userCity" class='color' lang="zh_TW"></open-data>
+          </view>
+        </view>
+      </view>
+      <view class='nickName'>
+        <open-data type="userNickName"></open-data>
+      </view>
     </view>
-  
-  <view class="userinfo-part">
-    <view class='userinfo-part1'>
-      <open-data type="userNickName"  class="userinfo-nickname"></open-data>
-      <image class='userInfo-image' src='../../image/edit.png'></image>
+    <view class='head_bg'>
+      <image src="../../image/head_bg.png"></image>
     </view>
-     <view class="divLine"></view>
-    <view class="userinfo-part1">
-       <image class='userInfo-image' src='../../image/location.png'></image>
-       <open-data type="userProvince"  class="userinfo-nickname" lang="zh_CN"></open-data>
-       <open-data type="userCity"  class="userinfo-nickname" lang="zh_CN"></open-data>
-       <label class="userMoney">用户余额:</label><text class="moneyNum">0.00</text>
-    </view>
-  </view>
   </view>
 </template>

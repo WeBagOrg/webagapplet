@@ -1,24 +1,41 @@
-
-<import src="../common/foot.wxml" />
-<import src="../common/head.wxml" />
-<view class="container">
-  <template is="head" />
-  <view class="divLine"></view>
-   <view class="index-bd">
-    <view class="kind-list">
-      <view class="kind-list-item">
-          <view class="kind-list-item-bd kind-list-item-bd-show">
-            <view class="navigator-box navigator-box-show">
-              <block wx:for-items="{{items}}" wx:for-item="item" wx:key="id">
-                <navigator url="/pages/{{item.id}}/{{item.id}}" class="navigator">
-                  <view class="navigator-text">{{item.name}}</view>
-                  <view class="navigator-arrow"></view>
-                </navigator>
-              </block>
-            </view>
-          </view>
-        </view>
+<view class='swiper'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='new'>
+  <navigator class='more' url='/pages/newsList/newsList'>
+    <text>查看更多></text>
+  </navigator>
+  <view>
+    <text class='head'>新闻资讯</text>
+  </view>
+  <view class='content'>
+    <view class='navigator_box' wx:for-items="{{news}}" wx:for-item="item" wx:key="id">
+      <navigator url="/pages/newContent/newContent" class="navigator">
+        <view class='icon{{item.index}} icon'></view>
+        <view class="info">{{item.title}}</view>
+      </navigator>
     </view>
   </view>
-  <template is="foot" />
+</view>
+<view class='course'>
+  <text class='head'>精品课程</text>
+  <view class='content'>
+      <view class='course_wrapper' wx:for-items="{{course}}" wx:for-item="item" wx:key="id">
+      <view class='course_img'>
+        <image src="{{item.imageUrl}}"/>
+      </view>
+      <view class='course_info'>
+        <text class='title'>{{item.title}}</text>
+        <text class='teacher'>{{item.teacher}}</text>
+        <text class='description'>{{item.description}}</text>
+        <text class='number'>{{item.num}}人已订阅</text>
+      </view>
+    </view>
+  </view>
 </view>

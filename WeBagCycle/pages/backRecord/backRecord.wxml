@@ -1,0 +1,24 @@
+<!--pages/backRecord/backRecord.wxml-->
+<include src="../../utils/refreshHeaderView.wxml" />
+<include src="../../utils/loadMoreFooterView.wxml" />
+<import src="../common/head.wxml" />
+
+<scroll-view class="scroll_container" scroll-y="true" bindscroll="scrollHandle" scroll-top="{{scrolltop}}" style="position:fixed;width:100%;left:0;height:{{scrollHeight}}px;  top:{{loadMoreHeight == 0? refreshHeight:-loadMoreHeight}}px;bottom:{{loadMoreHeight}}px;" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end" >
+<template is="head"/>
+<view class='backRecord' bindtouchmove="move">
+  <view class='header'>
+    <view class='header-item'>时间</view>
+    <view class='header-item'>废品类型</view>
+    <view class='header-item'>总重(kg)</view>
+  </view>
+    <view >
+      <view class='list' wx:for="{{items}}" wx:for-item='item' wx:key='id'>
+        <view class='list-item'>
+          <view class='info'>{{item.time}}</view>
+          <view class='info'>{{item.mold}}</view>
+          <view class='info'>{{item.weight}}</view>
+        </view>
+      </view>
+    </view>
+    </view>
+  </scroll-view>

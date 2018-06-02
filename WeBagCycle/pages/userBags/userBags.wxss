@@ -1,0 +1,3 @@
+/* pages/userBags/userBags.wxss */
+@import "../user/user.wxss";
+@import "../backRecord/backRecord.wxss";

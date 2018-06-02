@@ -23,7 +23,7 @@ App({
                     success: function (userRes) {
                       //发起网络请求
                       wx.request({
-                        url: config.loginWXUrl,
+                        url: "https://www.webagcycle.com/webagcycle_war/webag/getUserInfo.ht",
                         data: {
                           code: res.code,
                           encryptedData: userRes.encryptedData,
@@ -52,7 +52,7 @@ App({
                 success: function (userRes) {
                   //发起网络请求
                   wx.request({
-                    url: config.loginWXUrl,
+                    url: "https://www.webagcycle.com/webagcycle_war/webag/getUserInfo.ht",
                     data: {
                       code: res.code,
                       encryptedData: userRes.encryptedData,

@@ -1,0 +1,5 @@
+/* pages/dynamic/dynamic.wxss */
+image{
+  width: 100%;
+  height: 1249rpx;
+}

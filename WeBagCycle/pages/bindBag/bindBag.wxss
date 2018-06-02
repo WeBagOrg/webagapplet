@@ -1,26 +1,33 @@
-@import "../index/index.wxss";
-.input{
-    padding-left: 10px;
-    height: 44px;
-}
+@import "../user/user.wxss";
+@import "../backRecord/backRecord.wxss";
 
-.kind-list-item-input{
-    border:  2px solid red;
-    border-radius: 40px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 55px;
+.backRecord{
+  font-size: 28rpx;
+   text-align: center;
+   height: 100%;
+}
+.backRecord .form{
+  text-align: center;
+  font-size: 28rpx;
+  padding-top: 150rpx;
+}
+.input{
+    height: 80rpx;
+    width: 450rpx;
+    border:  2rpx solid #fa6e13;
+    border-radius: 20rpx;
+    margin-left: 150rpx;
+    margin-right: 150rpx;
+    color: #ddd;
 }
 
 .button{
-  border-radius: 40rpx;
-  background-color: #1AAD19;
-  
-}
-
-.kind-list-item-button{
-   margin-left: 15rpx;
-   margin-right: 15rpx;
-   margin-top: 30rpx;
-   color: #fff;
-}
+  margin-top: 50rpx;
+  font-size: 32rpx;
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background-color: #fa6e13;
+  color: #fff;
+}          

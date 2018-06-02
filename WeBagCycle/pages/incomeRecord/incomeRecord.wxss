@@ -1,0 +1,6 @@
+/* pages/incomeRecord/incomeRecord.wxss */
+@import "../user/user.wxss";
+@import "../backRecord/backRecord.wxss";
+.backRecord .header-item .header-item-unit {
+  font-size: 12rpx；
+}

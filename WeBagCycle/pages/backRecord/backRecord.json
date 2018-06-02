@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "回收记录",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}
