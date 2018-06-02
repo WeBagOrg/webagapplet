@@ -21,6 +21,7 @@ App({
                   wx.getUserInfo({
                     lang: "zh_CN",
                     success: function (userRes) {
+                      alert(userRes);
                       //发起网络请求
                       wx.request({
                         url: "https://www.webagcycle.com/webagcycle_war/webag/getUserInfo.ht",
