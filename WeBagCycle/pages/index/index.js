@@ -4,6 +4,10 @@ const app = getApp()
 
 Page({
   data: {
+    userInfo: {},
+    hasUserInfo: false,
+    getUserInfoFail: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     indicatorDots: true,
     vertical: false,
     autoplay: false,
@@ -90,9 +94,13 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
+
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  onShow: function () {
+    this.login();
   },
   onLoad: function () {
     var that = this;
@@ -128,17 +136,96 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
+        },
+        fail: res => {
+          this.setData({
+            getUserInfoFail: true
+          })
         }
       })
     }
   },
   getUserInfo: function (e) {
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    if (e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    } else {
+      this.openSetting();
+    }
+  },
+  login: function () {
+    console.log(111)
+    var that = this
+    // if (typeof success == "function") {
+    //   console.log(6);
+    //   console.log('success');
+    //   this.data.getUserInfoSuccess = success
+    // }
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+        console.log(code);
+        wx.getUserInfo({
+          success: function (userRes) {
+            console.log(userRes.encryptedData)
+            app.globalData.userInfo = userRes.userInfo
+            that.setData({
+              getUserInfoFail: false,
+              // userInfo: userRes.userInfo,
+              hasUserInfo: true
+            })
+            //发送后台请求
+            wx.request({
+              url: 'https://www.webagcycle.com/webagcycle_war/webag/getUserInfo.ht',
+              data:{
+                code: res.code,
+                encryptedData: userRes.encryptedData,
+                iv: userRes.iv
+              },
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              method: 'POST',
+              success:function(result){
+                console.log(result)
+                if(result.data!=""){
+                    var data = result.data.result;
+                  //  data.expireTime = nowDate + EXPIRETIME;
+                    wx.setStorageSync("userInfo", data);
+                    userInfo = data
+                }
+              }
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+            that.setData({
+              getUserInfoFail: true
+            })
+          }
+        })
+      }
     })
+  },
+  //跳转设置页面授权
+  openSetting: function () {
+    var that = this
+    if (wx.openSetting) {
+      wx.openSetting({
+        success: function (res) {
+          //尝试再次登录
+          that.login()
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '授权提示',
+        content: '小程序需要您的微信授权才能使用哦~ 错过授权页面的处理方法：删除小程序->重新搜索进入->点击授权按钮'
+      })
+    }
   }
-
 })
