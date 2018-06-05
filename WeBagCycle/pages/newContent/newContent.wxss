@@ -1,5 +1,36 @@
 /* pages/newContent/newContent.wxss */
-image{
-  width: 100%;
-  height: 1249rpx;
+.new{
+  background: #fff;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.new .title{
+  width:100%;
+  height: 85rpx;
+  line-height: 85rpx;
+  font-size:32rpx;
+  font-weight: bold;
+  font-family: "微软雅黑";
+}
+.new .info{
+  font-size:20rpx;
+  color:#b6b7b9;
+}
+.new .img{
+  margin-top: 24rpx;
+}
+.new .img image{
+  width: 686rpx;
+  height: 380rpx;
+}
+.new .content{
+  width: 686rpx;
+  margin-top: 20rpx;
+  font-size:26rpx;
+  line-height: 2;
+  padding-right: 30rpx;
+  font-family: "微软雅黑";
+  color: #161616;
+  text-indent: 20rpx;
+  word-break: break-all;
 }

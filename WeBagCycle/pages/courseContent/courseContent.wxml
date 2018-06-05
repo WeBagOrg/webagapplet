@@ -1,0 +1,9 @@
+<view class='course'>
+<image src='{{course.imageUrl}}'></image>
+<view>
+<audio src='{{course.audio}}'></audio>
+<view><icon></icon><text></text></view>
+</view>
+</view>
+
+

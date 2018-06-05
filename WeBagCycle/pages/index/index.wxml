@@ -8,7 +8,7 @@
   </swiper>
 </view>
 <view class='new'>
-  <navigator class='more' url='/pages/newsList/newsList'>
+  <navigator class='more' url='/pages/courseContent/courseContent'>
     <text>查看更多></text>
   </navigator>
   <view>
@@ -37,14 +37,5 @@
         <text class='number'>{{item.num}}人已订阅</text>
       </view>
     </view>
-  </view>
-</view>
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse && getUserInfoFail}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:if="{{hasUserInfo}}">
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
   </view>
 </view>

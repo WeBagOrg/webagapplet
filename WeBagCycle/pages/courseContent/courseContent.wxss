@@ -1,0 +1,8 @@
+/* pages/courseContent/courseContent.wxss */
+.course{
+  width: 100%;
+}
+.course image{
+  width: 100%;
+  height: 388rpx;
+}

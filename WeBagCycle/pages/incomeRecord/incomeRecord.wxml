@@ -1,4 +1,10 @@
+<include src="../../utils/refreshHeaderView.wxml" />
+<include src="../../utils/loadMoreFooterView.wxml" />
 <import src="../common/head.wxml" />
+
+
+
+<scroll-view class="scroll_container" scroll-y="true" bindscroll="scrollHandle" scroll-top="{{scrolltop}}" style="position:fixed;width:100%;left:0;height:{{scrollHeight}}px;  top:{{loadMoreHeight == 0? refreshHeight:-loadMoreHeight}}px;bottom:{{loadMoreHeight}}px;" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end" >
 <template is="head"/>
 <view class='backRecord' bindtouchmove="move">
   <view class='header'>
@@ -18,3 +24,4 @@
       </view>
     </view>
     </view>
+     </scroll-view>

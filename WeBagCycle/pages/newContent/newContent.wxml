@@ -1,1 +1,14 @@
-<image src='../../image/newContent.jpg'></image>
+<view class='new'>
+  <view class='title'>
+    <text>{{new.title}}</text>
+  </view>
+  <view class='info'>
+    <text>{{new.time}}{{new.author}}</text>
+  </view>
+  <view class='img'>
+    <image src='{{new.imgUrl}}'></image>
+  </view>
+  <view class='content'>
+    <text>{{new.content}}</text>
+  </view>
+</view>
