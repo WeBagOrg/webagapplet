@@ -4,10 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    getUserInfoFail: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     indicatorDots: true,
     vertical: false,
     autoplay: false,
