@@ -84,18 +84,16 @@ Page({
   },
 
   confirmEvent: function () {
-    console.log(131)
     this.dialog.hideDialog();
+    this.login();
   },
 
   bindGetUserInfo: function () {
     // 用户点击授权后，这里可以做一些登陆操作
-    console.log(121)
-    this.htLogin();
+    console.log(121)  
   },
   
   login: function () {
-    console.htLogin(111)
     var that = this
     // if (typeof success == "function") {
     //   console.log(6);
@@ -108,7 +106,7 @@ Page({
         console.log(code);
         wx.getUserInfo({
           success: function (userRes) {
-            console.log(userRes.encryptedData)
+           // console.log(userRes.encryptedData)
             app.globalData.userInfo = userRes.userInfo
             that.setData({
               getUserInfoFail: false,
@@ -117,7 +115,7 @@ Page({
             })
             //发送后台请求
             wx.request({
-              url: 'https://www.webagcycle.com/webagcycle_war/webag/wechatuserInfo/getSessionKeyOropenid.ht',
+              url: 'https://www.webagcycle.com/webag/wechatuserInfo/getSessionKeyOropenid.ht',
               data: {
                 code: res.code,
                 encryptedData: userRes.encryptedData,
@@ -130,10 +128,9 @@ Page({
               success: function (result) {
                 console.log(result)
                 if (result.data != "") {
-                  var data = result.data.result;
+                  var data = result.data.message.openid;
                   //  data.expireTime = nowDate + EXPIRETIME;
-                  wx.setStorageSync("userInfo", data);
-                  userInfo = data
+                  wx.setStorageSync("openId", data);
                 }
               }
             })
