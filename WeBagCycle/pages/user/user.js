@@ -7,6 +7,7 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    canIUse:false,
     items: [
       {
         id: 'bindBag',
@@ -37,7 +38,7 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -76,9 +77,9 @@ Page({
   onReady: function () {
     //获得dialog组件
     this.dialog = this.selectComponent("#dialog");
-    if (hasUserInfo){
-      this.showDialog();
-    }
+    if (this.data.hasUserInfo==false){
+        this.showDialog();
+    }  
   },
 
   showDialog: function () {
@@ -97,11 +98,6 @@ Page({
   
   login: function () {
     var that = this
-    // if (typeof success == "function") {
-    //   console.log(6);
-    //   console.log('success');
-    //   this.data.getUserInfoSuccess = success
-    // }
     wx.login({
       success: function (res) {
         var code = res.code;
