@@ -8,7 +8,7 @@ Page({
   data: {
     currentSize: 0,
     length: 20,
-    code: wx.getStorageSync('openid'),
+    code: wx.getStorageSync('openId'),
     items: [
       { id:'',
         time: '',
