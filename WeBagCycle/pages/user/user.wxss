@@ -111,7 +111,7 @@
   margin-top:14rpx;
   font-size: 28rpx;
   background-size:100%;
-  background-image: url("");
+  
 }
 
 .kind-list-item {
@@ -179,7 +179,7 @@
   height: 40rpx;
   background-size: 35rpx 40rpx;
   background-repeat: no-repeat;
-  background-image: url(https://thumbnail0.baidupcs.com/thumbnail/88b7a54bc06b423864dc84c702137fbc?fid=346474898-250528-1063893941745636&time=1527836400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2BQR2yMAt1oYnS9%2B9nVyc0DSovFU%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3517106953671090207&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video);
+  background-image: url(https://www.webagcycle.com/webagapplet/bindBag.png);
 }
 .navigator .icon1 {
   display: inline-block;
@@ -189,7 +189,7 @@
   height: 40rpx;
   background-size: 35rpx 40rpx;
   background-repeat: no-repeat;
-  background-image: url(https://thumbnail0.baidupcs.com/thumbnail/c2c9a92de76a53157cf137d9b9d78fe0?fid=346474898-250528-718062901777324&time=1527818400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-6rckqRWWW8C3uWoHjr5riJWdWcc%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3511975051949434198&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video);
+  background-image: url(https://www.webagcycle.com/webagapplet/backRecord.png);
 }
 .navigator .icon2 {
   display: inline-block;
@@ -199,7 +199,7 @@
   height: 40rpx;
   background-size: 35rpx 40rpx;
   background-repeat: no-repeat;
-  background-image: url(https://thumbnail0.baidupcs.com/thumbnail/116b28c84a86101139b02b6bafbdb9c1?fid=346474898-250528-43524956665770&time=1527818400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-P3Suji4bwpazUar9Riof6aviAVw%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3511998732982141044&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video);
+  background-image: url(https://www.webagcycle.com/webagapplet/incomeRecord.png);
 }
 .navigator .icon3 {
   display: inline-block;
@@ -209,7 +209,7 @@
   height: 40rpx;
   background-size: 35rpx 40rpx;
   background-repeat: no-repeat;
-  background-image: url(https://thumbnail0.baidupcs.com/thumbnail/0855a2d69ba9134bacb3cd83d15f8a23?fid=346474898-250528-61583322192739&time=1527818400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-z6ajl9ltDIKXCngzWpxJtj7EXhg%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3512032531221254984&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video);
+  background-image: url(https://www.webagcycle.com/webagapplet/userBags.png);
 }
 
 .navigator-text {

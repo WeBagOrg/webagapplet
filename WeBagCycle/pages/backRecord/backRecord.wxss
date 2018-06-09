@@ -11,7 +11,7 @@
   width: 100%;
   margin-top:14rpx; 
   background-size:100%;
-  background-image: url(https://thumbnail0.baidupcs.com/thumbnail/77cc0549d89cbc67ad2800ba001b2a56?fid=346474898-250528-538949706144853&time=1527818400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-3s3TP8MAgxU%2BKgXomVzVBfIlepE%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3512403358155901668&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video);
+  background-image: url(https://www.webagcycle.com/webagapplet/list-bg.png);
 }
 
 .backRecord .header {

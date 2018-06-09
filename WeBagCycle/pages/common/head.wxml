@@ -23,7 +23,7 @@
       </view>
     </view>
     <view class='head_bg'>
-      <image src="https://thumbnail0.baidupcs.com/thumbnail/3867e92b2b9aa8c155eb59be0ff54d71?fid=346474898-250528-993586996572150&time=1527818400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-zmJH1Ma8vACvbqw3xpw2XrFihfs%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=3512175773376110842&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video"></image>
+      <image src="https://www.webagcycle.com/webagapplet/head_bg.png"></image>
     </view>
   </view>
 </template>

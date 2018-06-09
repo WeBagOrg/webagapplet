@@ -8,12 +8,13 @@ Page({
   data: {
     currentSize: 0,
     length: 20,
+    code: wx.getStorageSync('openid'),
     items: [
       {
-        id: '0',
-        time: '2018-02-06',
-        code: 'WEBTTTTTT',
-        weight: '1.1'
+        id: '',
+        bindTime: '',
+        bagNo: '',
+        unBindTime: ''
       }
     ]
   },
@@ -24,38 +25,36 @@ Page({
   onLoad: function (options) {
     var that = this;
     var length = that.data.length;
-    wx.login({
-      success: function (res) {
-        var code = res.code;
-        //发送后台请求
-        wx.request({
-          url: 'http://127.0.0.1:8080/webag/billDetail/webagBillDetail/getByWechatId.ht',
-          data: {
-            code: code,
-            length: length
-          },
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: 'POST',
-          success: function (result) {
-            var list = JSON.parse(result.data.message);
-            if (list != "") {
-              var param = {};
-              for (var i = 0; i < list.length; i++) {
-                var ids = "items[" + i + "].id";
-                var times = "items[" + i + "].time"
-                var molds = "items[" + i + "].mold"
-                var weights = "items[" + i + "].weight"
-                param[ids] = i;
-                param[times] = list[i].showDate;
-                param[molds] = list[i].wasteType;
-                param[weights] = list[i].weight;
-                that.setData(param);
-              }
-            }
+    var code = that.data.code;
+    //发送后台请求
+    wx.request({
+      url: 'https://www.webagcycle.com/webag/bagInfo/webagBaginfo/webagBillDetail/getbindInfo.ht',
+      data: {
+        wechatId: code,
+        length: length
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        console.info(result);
+        var list = JSON.parse(result.data.message);
+        if (list != "") {
+          var param = {};
+          for (var i = 0; i < list.length; i++) {
+            var ids = "items[" + i + "].id";
+            var bindTimes = "items[" + i + "].bindTime"
+            var unBindTimes = "items[" + i + "].unBindTime"
+            var molds = "items[" + i + "].bagNo"
+           
+            param[ids] = i;
+            param[bindTimes] = list[i].showBindTime;
+            param[molds] = list[i].bagNo;
+            param[unBindTimes] = list[i].showUnBindTime;
+            that.setData(param);
           }
-        })
+        }
       }
     })
   },
@@ -70,10 +69,12 @@ Page({
       // for (var i = currendSize; i < length; i++) {
       //   that.data.words.push('内容' + i);
       // }
+      var code = that.data.code;
+      //发送后台请求
       wx.request({
-        url: 'http://127.0.0.1:8080/webag/billDetail/webagBillDetail/getByWechatId.ht',
+        url: 'https://www.webagcycle.com/webag/bagInfo/webagBaginfo/webagBillDetail/getbindInfo.ht',
         data: {
-          //code: code,
+          wechatId: code,
           length: length
         },
         header: {
@@ -86,13 +87,14 @@ Page({
             var param = {};
             for (var i = 0; i < list.length; i++) {
               var ids = "items[" + i + "].id";
-              var times = "items[" + i + "].time"
-              var molds = "items[" + i + "].mold"
-              var weights = "items[" + i + "].weight"
+              var bindTimes = "items[" + i + "].bindTime"
+              var unBindTimes = "items[" + i + "].unBindTime"
+              var molds = "items[" + i + "].bagNo"
+
               param[ids] = i;
-              param[times] = list[i].showDate;
-              param[molds] = list[i].wasteType;
-              param[weights] = list[i].weight;
+              param[bindTimes] = list[i].showBindTime;
+              param[molds] = list[i].bagNo;
+              param[unBindTimes] = list[i].showUnBindTime;
               that.setData(param);
             }
           }
