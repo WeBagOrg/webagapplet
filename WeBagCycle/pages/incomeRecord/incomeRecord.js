@@ -8,7 +8,7 @@ Page({
   data: {
     currentSize: 0,
     length: 20,
-    code : wx.getStorageSync('openid'),
+    code: wx.getStorageSync('openId'),
     items: [
       {
         id: '',
@@ -26,6 +26,7 @@ Page({
     var that = this;
     var length = that.data.length;
     var code = that.data.code;
+    console.log(code);
     //发送后台请求
     wx.request({
       url: 'https://www.webagcycle.com/webag/billDetail/webagBillDetail/getByWechatId.ht',

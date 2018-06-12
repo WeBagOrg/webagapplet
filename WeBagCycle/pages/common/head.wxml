@@ -8,7 +8,11 @@
       <view class='userinfo_wrapper'>
         <view class='asset'>
           <text>资产</text>
-          <text class='color'>0.00</text>
+          <text class='color'>
+          <block wx:for-items="{{items}}" wx:for-item="item" wx:key="id">
+              {{item.account}}
+            </block>
+          </text>
         </view>
         <view class='address'>
           <text>地址</text>

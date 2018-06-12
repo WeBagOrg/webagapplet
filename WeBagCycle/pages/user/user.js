@@ -61,6 +61,30 @@ Page({
         }
       })
     }
+    var openId = wx.getStorageSync('openId');
+    if(openId!=null&&openId!=undefined){
+      //发送后台请求，获取用户余额
+      wx.request({
+        url: 'http://127.0.0.1:8080/webag/usesrAccount/webagUserAccount/getAccountByWechat.ht',
+        data: {
+          code: openId
+        },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: 'POST',
+        success: function (result) {
+          if (result.data != "") {
+            var result1 = JSON.parse(result.data.message);
+            var data = result1.account;
+            console.log(data)
+            wx.setStorageSync("account", data);
+            console.log(wx.getStorageSync('account'))
+          }
+        }
+      })
+    }
+    
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -124,11 +148,31 @@ Page({
               },
               method: 'POST',
               success: function (result) {
-                console.log(result)
+               // console.log(result)
                 if (result.data != "") {
-                  var data = result.data.message.openid;
-                  //  data.expireTime = nowDate + EXPIRETIME;
+                  var result1 = JSON.parse(result.data.message);
+                  var data = result1.openid;
+                  console.log(data)
                   wx.setStorageSync("openId", data);
+                  //发送后台请求，获取用户余额
+                  wx.request({
+                    url: 'http://127.0.0.1:8080/webag/usesrAccount/webagUserAccount/getAccountByWechat.ht',
+                    data: {
+                      code: data
+                    },
+                    header: {
+                      "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    method: 'POST',
+                    success: function (result) {
+                      if (result.data != "") {
+                        var result1 = JSON.parse(result.data.message);
+                        var data = result1.account;
+                        console.log(data)
+                        wx.setStorageSync("account", data);
+                      }
+                    }
+                  })
                 }
               }
             })

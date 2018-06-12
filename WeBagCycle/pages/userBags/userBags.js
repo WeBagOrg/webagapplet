@@ -8,7 +8,7 @@ Page({
   data: {
     currentSize: 0,
     length: 20,
-    code: wx.getStorageSync('openid'),
+    code: wx.getStorageSync('openId'),
     items: [
       {
         id: '',
@@ -28,7 +28,7 @@ Page({
     var code = that.data.code;
     //发送后台请求
     wx.request({
-      url: 'https://www.webagcycle.com/webag/bagInfo/webagBaginfo/webagBillDetail/getbindInfo.ht',
+      url: 'https://www.webagcycle.com/webag/bagInfo/webagBaginfo/getbindInfo.ht',
       data: {
         wechatId: code,
         length: length
@@ -51,7 +51,9 @@ Page({
             param[ids] = i;
             param[bindTimes] = list[i].showBindTime;
             param[molds] = list[i].bagNo;
-            param[unBindTimes] = list[i].showUnBindTime;
+            if (list[i].showUnBindTime == null) {
+              param[unBindTimes] = "未解绑";
+            }
             that.setData(param);
           }
         }
@@ -94,7 +96,11 @@ Page({
               param[ids] = i;
               param[bindTimes] = list[i].showBindTime;
               param[molds] = list[i].bagNo;
-              param[unBindTimes] = list[i].showUnBindTime;
+              console.log(list[i].showUnBindTime);
+              if (list[i].showUnBindTime==null){
+                param[unBindTimes] = "未解绑";
+              }
+             
               that.setData(param);
             }
           }

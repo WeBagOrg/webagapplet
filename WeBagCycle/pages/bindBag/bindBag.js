@@ -5,23 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    code: wx.getStorageSync('openId')
   },
   openCode: function (e) {
+    var that = this;
+    var code = that.data.code;
     wx.scanCode({
       success: (res) => {
-        console.log(res)
-      }
-    })
-    wx.scanCode({
-      success: (res) => {
-        path = res.result;
-        console.log(path + ":" + code);
+        var path = res.result.split("?");
+        var bagNo = path[1].split("=");
         //发起网络请求
         wx.request({
-          url: path,
+          url: 'https://www.webagcycle.com/webag/bagInfo/webagBaginfo/userBindQR.ht',
           data: {
-            code: code
+            code: wx.getStorageSync('openId'),
+            bagNo : bagNo[1]
           },
           header: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -29,7 +27,11 @@ Page({
           method: 'POST',
           //服务端的回掉
           success: function (result) {
-            if (result == 1) {
+            var result1 = JSON.parse(result.data.message);
+            var val = result1.res;
+           // console.log(val);
+            
+            if (val == 1) {
               wx.showToast({
                 title: '成功',
                 icon: 'succes',
